@@ -31,7 +31,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import ChooseUs from '../MainHome/ChooseUs';
 import RelatedProducts from './RelatedProducts';
 
 interface BenefitCardProps {
@@ -377,7 +376,6 @@ const SingleProduct: React.FC = () => {
             </Link>
           </div>
 
-          <ChooseUs />
         </div>
       </motion.div>
     </>
