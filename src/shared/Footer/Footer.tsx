@@ -50,18 +50,7 @@ const Footer = () => {
                         </div>
                     </section>
                     <section className='text-black flex flex-col gap-6 w-full md:w-auto'>
-                        {/* <div className='text-black flex flex-col gap-2'>
-                            <h1 className='font-semibold text-lg'>Quick Links</h1>
-                            <div className='w-24 bg-black h-[1px]'></div>
-                        </div> */}
-                        {/* <div className='flex flex-col gap-2'>
-                            <FooterLink href="/">Home</FooterLink>
-                            <FooterLink href="/rudraksha">Rudraksha</FooterLink>
-                            <FooterLink href="/mala">Mala</FooterLink>
-                            <FooterLink href="/bracelet">Bracelet</FooterLink>
-                            <FooterLink href="/exclusive">Exclusive</FooterLink>
-                            <FooterLink href="/consultation">Consultation</FooterLink>
-                        </div> */}
+
                     </section>
 
                     <section className='text-black flex flex-col gap-6 w-full md:w-auto'>
