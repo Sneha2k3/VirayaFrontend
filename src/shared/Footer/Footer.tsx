@@ -54,16 +54,6 @@ const Footer = () => {
                     </section>
 
                     <section className='text-black flex flex-col gap-6 w-full md:w-auto'>
-                        {/* <div className='text-black flex flex-col gap-2'>
-                            <h1 className='font-semibold text-lg'>Extra Links</h1>
-                            <div className='w-24 bg-black h-[1px]'></div>
-                        </div> */}
-                        {/* <div className='flex flex-col gap-2'>
-                            <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
-                            <FooterLink href="/about">About Us</FooterLink>
-                            <FooterLink href="/faqs">FAQs</FooterLink>
-                            <FooterLink href="/terms-and-conditions">Terms and Conditions</FooterLink>
-                        </div> */}
                     </section>
 
                     <section className='text-black flex flex-col gap-6 w-full md:w-auto'>
