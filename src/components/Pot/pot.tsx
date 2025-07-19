@@ -1,14 +1,13 @@
 "use client"
-import { getByCategory, getByMultipleFilters, getSpecialProduct, getAllPots } from '@/services/products';
+import { getAllPots } from '@/services/products';
 import Loader from '@/shared/Loader';
-import SharedTitle from '@/shared/SharedTitle/SharedTitle';
 import { josefin } from '@/utils/font';
-import { Accordion, AccordionItem, Button, Checkbox, CheckboxGroup, Chip, Pagination } from '@nextui-org/react';
+import { Button, Chip, Pagination } from '@nextui-org/react';
 import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useCallback, useEffect, useState } from 'react';
-import { FiArrowRight, FiDollarSign, FiFilter, FiShoppingCart, FiX } from 'react-icons/fi';
+import { FiDollarSign, FiFilter, FiShoppingCart, FiX } from 'react-icons/fi';
 import { toast } from 'sonner';
 import Accord from '../shared/Accord';
 
@@ -176,18 +175,18 @@ const Products = () => {
 
   // Filter products based on the search query
 
-  useEffect(()=> {
+  useEffect(() => {
     //[LOOK] 
     try {
       const lCart = JSON.parse(localStorage.getItem("cart") || "[]");
-      if(lCart)
+      if (lCart)
         setCart(lCart);
-    }catch(err) {
+    } catch (err) {
       console.error("Error parsing cart from localStorage:", err);
       setCart([]);
       toast.error("Error loading cart from localStorage. Please try again.");
     }
-  },[])
+  }, [])
 
 
   // useEffect(()=> {
@@ -215,13 +214,13 @@ const Products = () => {
 
   const handleCart = useCallback((product: Product) => {
     const qProduct = {
-        ...product,
-        quantity:1
+      ...product,
+      quantity: 1
     }
-    if(cart.find(p  => p._id === qProduct._id)) {
-      qProduct["quantity"] +=1;
+    if (cart.find(p => p._id === qProduct._id)) {
+      qProduct["quantity"] += 1;
     }
-    const updatedCart = [...cart.filter(c=>c._id!==product._id), qProduct];
+    const updatedCart = [...cart.filter(c => c._id !== product._id), qProduct];
     setCart(updatedCart);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
   }, [cart]);
@@ -315,7 +314,7 @@ const Products = () => {
                 </Button>
               </div>
             </div>
-            <Accord 
+            <Accord
               filterOptions={filterOptions}
               handleFilterChange={handleFilterChange}
               selectedSize={selectedSize}
@@ -323,8 +322,8 @@ const Products = () => {
               priceRange={priceRange}
               setPriceRange={setPriceRange}
               searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery} 
-              />
+              setSearchQuery={setSearchQuery}
+            />
 
             {/* <Accordion> */}
             {/* Faces Filter */}
@@ -538,73 +537,6 @@ const Products = () => {
         </div>
       </div>
 
-      {/* Special Products Section */}
-      {/**
-      {specialProducts?.products && specialProducts.products.length > 0 && (
-        <div className="w-full px-4 md:px-16 mt-12 mb-16">
-          <div className="mx-auto text-center mb-12">
-            <SharedTitle title="Our Special Collection" />
-            <p className="text-gray-600 max-w-3xl mx-auto mt-4">
-              Discover our carefully curated selection of premium Rudraksha beads,
-              handpicked for their exceptional quality and spiritual significance.
-              Each piece in this collection represents the finest examples of sacred craftsmanship.
-            </p>
-          </div>
-          {specialLoading && <Loader />}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {specialProducts.products.map((product) => (
-              <div
-                key={product._id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="relative">
-                  <div className="absolute top-4 right-4 z-10">
-                    <Chip
-                      color="primary"
-                      variant="solid"
-                      size="sm"
-                      className="font-medium"
-                    >
-                      Special
-                    </Chip>
-                  </div>
-                  <Link
-                    href={`/pot/${product._id}`}
-                  >
-                    <div className="relative h-48 w-full overflow-hidden">
-                      <Image
-                        src={product.img[0]}
-                        alt={product.title}
-                        fill
-                        className="object-cover hover:scale-110 transition-transform duration-700"
-                      />
-                    </div>
-                  </Link>
-                </div>
-
-                <div className="p-6 text-center">
-                  <h4 className="text-xl font-semibold mb-4">{product.title}</h4>
-                  <div className="flex justify-center gap-2 mb-4">
-                    <Chip size="sm" variant="flat" color="primary">{product.size}</Chip>
-                    <Chip size="sm" variant="flat" color="secondary">{product.faces} Face</Chip>
-                  </div>
-                  <div className="text-2xl font-bold text-primary mb-4">
-                    ${product.price}
-                  </div>
-                  <Link
-                    href={`/pot/${product._id}`}
-                    className="text-primary hover:text-primary/80 font-medium inline-flex items-center"
-                  >
-                    View Details
-                    <FiArrowRight className="ml-2" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-      **/}
     </div>
   );
 };
