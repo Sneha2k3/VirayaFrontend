@@ -63,17 +63,12 @@ const Footer = () => {
                         </div>
                         <div className='flex flex-col gap-2'>
                             <FooterLink href="/consultation">Customized Products</FooterLink>
-                            {/* <FooterLink href="/consultation">Free Consultation</FooterLink> */}
                             <FooterLink href="/reviews">View Reviews</FooterLink>
                         </div>
                     </section>
                 </main>
                 <main className='flex flex-col w-full gap-4 mt-4 items-center justify-center'>
                     <Divider className='bg-gray-600' />
-                    {/* <div className='flex flex-col sm:flex-row items-center w-full justify-between text-gray-700 gap-2 text-center sm:text-left'>
-                        <p>Copyright © {date} by Khadbari Rudraskha Suppliers</p>
-                        <p>© Developed by <Link href='https://nischal-neupane.com.np' className='underline underline-offset-2' target='_blank'>Nischal Neupane</Link> and Rabin Bhattarai</p>
-                    </div> */}
                 </main>
             </main>
         </>
